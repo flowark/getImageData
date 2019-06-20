@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+  var c = document.getElementById("myCanvas");
+  //proporciona métodos y propiedades para dibujar en el lienzo.
+  //dibujar texto, líneas, cuadros, círculos y más, en el lienzo.
+  var ctx = c.getContext("2d");
+  //establece o devuelve el color, degradado o patrón utilizado para rellenar el dibujo.
+  ctx.fillStyle = "yellow";
+  // dibuja un rectángulo "relleno" context .fillRect ( x, y, ancho, alto );
+  ctx.fillRect(30, 30, 100, 100);
+
+  // devuelve un objeto ImageData que copia los datos de píxeles para el rectángulo especificado en un lienzo.
+  //Nota: el objeto ImageData no es una imagen, especifica una parte (rectángulo) en el lienzo y contiene información de cada píxel dentro de ese rectángulo.
+  //context .getImageData ( x, y, ancho, alto );
+  var imgData = ctx.getImageData(30, 30, 50, 50);
+  // obtener información en color/alfa del primer píxel en el objeto ImageData devuelto:
+  red = imgData.data[0];
+  green = imgData.data[1];
+  blue = imgData.data[2];
+  alpha = imgData.data[3];
+  alert(red + " " + green + " " + blue + " " + alpha);
+</script>
+
+<p><strong>Note:</strong> The canvas tag is not supported in Internet
+Explorer 8 and earlier versions.</p>
+
+</body>
+</html>
